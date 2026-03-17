@@ -1,0 +1,17 @@
+name: sgeu-cad
+
+services:
+  postgres:
+    image: docker.io/postgres:18
+    environment:
+      POSTGRES_DB: sgeu_cad
+      POSTGRES_USER: sgeu
+      POSTGRES_PASSWORD: sgeu
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}
+

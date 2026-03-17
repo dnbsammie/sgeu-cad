@@ -1,6 +1,6 @@
-<h1 align="center">RETO 02 - Sistema de gestión de Emergencias Urbanas</h1>
+<h1 align="center">SGEU CAD - Sistema de gestión de emergencias urbanas</h1>
 
-<img src="./assets/banner.png" width="100%"></img>
+<img src="./docs/images/banner.png" width="100%"></img>
 
 <details>
   <summary>Tabla de Contenidos:</summary>
@@ -9,8 +9,6 @@
     <li><a href="#objectives">Objetivos</a></li>
     <li><a href="#sistemflow">Flujo del Sistema</a></li>
     <li><a href="#usage">Uso</a></li>
-    <li><a href="#gallery">Galeria</a></li>
-    <li><a href="#code">Código</a></li>
     <li><a href="#contact">Contacto</a></li>
   </ol>
 </details>
@@ -18,14 +16,14 @@
 <!-- Sobre -->
 <h2 id="about">Sobre el proyecto 🚨</h2>
 <h3>Introducción:</h3>
-<p>Desarrollo de aplicación por consola que facilita la coordinación de servicios de emergencia en una ciudad, incluyendo bomberos, ambulancia y policía.</p>
+<p>Backend web (CAD / Computer-Aided Dispatch) para coordinar servicios de emergencia urbanos (bomberos, ambulancia, policía) con registro de incidentes, asignación/gestión de recursos, monitoreo y reporte diario.</p>
 
 <p>Puedes encontrar el video <a href="#">aqui mismo 🎥.</a></p>
 
 
 <h3 align="left">Lenguajes y herramientas:</h3>
 
-<p align="left">
+<p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=git,java,github,vscode,md&theme=dark" />
   </a>
@@ -146,7 +144,8 @@
 <h3>Prerequisitos:</h3>
 <ul>
   <li>IDE (IntelliJ, Eclipse, NetBeans, VSCode, etc).</li>
-  <li>JDK > 21 <a href="https://www.oracle.com/java/technologies/downloads/">Download JDK</a></li>
+  <li>JDK 21+</li>
+  <li>Podman (para ejecutar PostgreSQL)</li>
 </ul>
 
 <h3>Instalación:</h3>
@@ -156,42 +155,12 @@
 </p>
 
 ```shell
-# Clona el repositorio
-git clone https://github.com/dnbsammie/Reto02.git
-cd Reto02-clone
+# Inicia PostgreSQL con Podman (compose)
+podman compose up -d
 
-# Ejecuta el projecto
-javac Emergency.java
-
-java Emergency
-```
-
-<!-- GALERIA -->
-<h2 id="gallery">Galería 🖼</h2>
-<p align="center">
-  <img src="./assets/images/" alt="Image 1" width="30%">
-  <img src="./assets/images/" alt="Image 2" width="30%">
-  <img src="./assets/images/" alt="Image 3" width="30%">
-</p>
-<p align="center">
-  <strong>Fig. 1:</strong> Imágenes de ejemplo del proyecto.
-</p>
-
-<!-- CÓDIGO -->
-<h2 id="gallery">Código 👨‍💻</h2>
-<h3>Main (Emergency): </h3>
-
-```java
-package main;
-
-import java.util.Scanner;
-
-public class Emergency {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        input.close();
-    }
-}
+# Ejecuta el backend (Spring Boot)
+cd backend
+./mvnw spring-boot:run
 ```
 
 <!-- CONTACTO -->
