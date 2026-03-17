@@ -18,8 +18,6 @@
 <h3>Introducción:</h3>
 <p>Backend web (CAD / Computer-Aided Dispatch) para coordinar servicios de emergencia urbanos (bomberos, ambulancia, policía) con registro de incidentes, asignación/gestión de recursos, monitoreo y reporte diario.</p>
 
-<p>Puedes encontrar el video <a href="#">aqui mismo 🎥.</a></p>
-
 
 <h3 align="left">Lenguajes y herramientas:</h3>
 
@@ -102,7 +100,7 @@
 <p>Permitir al usuario analizar los resultados para planificar mejor futuras jornadas.</p>
 </ol>
 
-<h2 id="sistemflow">Desacripción del Flujo del Sistema 💻</h3>
+<h2 id="sistemflow">Descripción del Flujo del Sistema 💻</h3>
 
 <p>El flujo del sistema de gestión de emergencias urbanas está diseñado para permitir una gestión eficiente y clara de las emergencias en una ciudad. El sistema sigue un ciclo continuo que permite registrar emergencias, asignar recursos, monitorizar el progreso de las atenciones y evaluar el rendimiento del sistema. Acontinucación, se describe el flujo general del sistema.</p>
 
@@ -112,7 +110,7 @@
     <li>Menú de Opciones</li>
     <p>Una vez iniciado el sistema, el usuario se enfrenta a un menú interactivo que le permite seleccionar entre diversas opciones:</p>
     <ul>
-        <li>Registrar una nueva emergencia: El usuario puede ingresar información sobre la emergencia, como el tipo (incendio, accidente vehicular, robe, etc.), la ubicación y el nivel gravedad.</li>
+        <li>Registrar una nueva emergencia: El usuario puede ingresar información sobre la emergencia, como el tipo (incendio, accidente vehicular, robo, etc.), la ubicación y el nivel gravedad.</li>
         <li>Ver el estado de los recursos disponibles: El sistema muestra el estado actual de los recursos, tales como vehículos, personal y combustible disponible.</li>
         <li>Atender una emergencia: El usuario puede asignar recursos a una emergencia específica basándose en la prioridad determinada por la gravedad del evento y su proximidad.</li>
         <li>Mostrar estadísticas: Al finalizar la jornada o cuando se desee evaluar el desempeño del sistema, el usuario puede ver métricas clave, como el número de emergencias atendidas, tiempo promedio de respuesta , y recursos utilizados.</li>
@@ -161,6 +159,26 @@ podman compose up -d
 # Ejecuta el backend (Spring Boot)
 cd backend
 ./mvnw spring-boot:run
+```
+
+<h3>Endpoints base (MVP)</h3>
+
+```shell
+# Crea una estación
+curl -X POST localhost:8080/api/stations \
+  -H 'Content-Type: application/json' \
+  -d '{"name":"Central Station","location":{"addressLine":"Av. Principal 123","city":"Ciudad","zone":"Z1","latitude":10.0,"longitude":-84.0}}'
+
+# Crea una unidad
+curl -X POST localhost:8080/api/units \
+  -H 'Content-Type: application/json' \
+  -d '{"agency":"FIRE","callsign":"F-01","homeStationId":"<uuid>","status":"AVAILABLE","activePersonnel":4,"fuelPercent":100}'
+
+# Registra una emergencia
+curl -X POST localhost:8080/api/emergencies \
+  -H 'Content-Type: application/json' \
+  -H 'X-Actor: operator-1' \
+  -d '{"type":"FIRE","severity":"HIGH","location":{"addressLine":"Calle 5","city":"Ciudad","zone":"Z1","latitude":10.1,"longitude":-84.1},"estimatedInitialResponseMinutes":7,"notes":"Humo visible"}'
 ```
 
 <!-- CONTACTO -->

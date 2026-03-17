@@ -1,0 +1,13 @@
+package com.sgeu.cad.model;
+
+public enum IncidentEventType {
+	LOGGED,
+	TRIAGED,
+	ALLOCATION_PROPOSED,
+	ALLOCATION_ADJUSTED,
+	DISPATCH_CONFIRMED,
+	UNIT_STATUS_CHANGED,
+	RESOLVED,
+	CANCELLED
+}
+

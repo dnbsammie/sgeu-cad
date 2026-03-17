@@ -2,7 +2,7 @@ name: sgeu-cad
 
 services:
   postgres:
-    image: docker.io/postgres:18
+    image: docker.io/postgres:16
     environment:
       POSTGRES_DB: sgeu_cad
       POSTGRES_USER: sgeu
